@@ -103,3 +103,12 @@ result:
 userid | name | email | signup
 ------ | ---- | ----- | ------
 4 | Brandy Boolean | bboolean@nasa.gov | 1999-10-15T00:00:00.000Z
+
+
+
+
+
+First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
