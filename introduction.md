@@ -40,6 +40,7 @@ integer, boolean, string(varchar)
 
 Selct the `date` and `amount` fields from the payments database.
 result:
+
 date | amount
 ---- | -----
 2016-05-01T00:00:00.000Z	| 1500.0000
@@ -53,9 +54,11 @@ date | amount
 ```
 Select the `amount` field from the payments table for each record where `amount` is greater than 500.
 result
-amount |
------- |
-1500.0000 |
+
+amount |    
+------ |    
+1500.0000 |   
+
 
 ```
      SELECT *
@@ -64,6 +67,7 @@ amount |
 ```
 select all payemnts from `Mega Foods` from database
 result:
+
 date	| payee | amount | memo
 ---- | ----- | ------ | ----
 2016-05-15T00:00:00.000Z	| Mega Foods |	124.9300	| Groceries
@@ -77,6 +81,7 @@ FROM users
 WHERE name='DeAndre Data'
 ```
 result:
+
 email | signup
 ----- | ------
 datad@comcast.net | 2008-01-20T00:00:00.000Z
@@ -89,6 +94,7 @@ FROM users
 WHERE email='aleesia.algorithm@uw.edu'
 ```
 result:
+
 userid |
 ------ |
 1 |
@@ -100,15 +106,8 @@ FROM users
 WHERE userid=4
 ```
 result:
+
 userid | name | email | signup
 ------ | ---- | ----- | ------
 4 | Brandy Boolean | bboolean@nasa.gov | 1999-10-15T00:00:00.000Z
 
-
-
-
-
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
