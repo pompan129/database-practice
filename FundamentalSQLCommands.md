@@ -11,7 +11,7 @@
     (11773, 'South Face Jacket', 174.99),
     (11774, 'Big Mountain 2-Person Tent', 219.99);
      ```
-- __UPDATE__: This comand is followed by the table name and then the `SET` command. After designating the fields and value to update and a `WHERE` command to select specific record(s)
+- __UPDATE__: This command is followed by the table name and then the `SET` command. After designating the fields and value to update and a `WHERE` command to select specific record(s)
 
     `UPDATE products SET price=159.99 WHERE id=11773;`
 - __DELETE__: This command is followed by the `FROM` command and table name. Then the `WHERE` command use used to designate which records to delete. Be careful, this is not reversible.
@@ -19,7 +19,7 @@
 
 >3. What are some of the data types that can be used in tables? Give a real-world example of each type.
 - __integer__: Whole numbers. Could be used to store the enrollment in a class or inventory numbers for a small business.
-- __decimal__: A floating point number with a precision specified by the user. Could be used to store dollar amounts or say temperature data to a needed dprecision.
+- __decimal__: A floating point number with a precision specified by the user. Could be used to store dollar amounts or say temperature data to a needed precision.
 - __varchar__: character data. could be used to store a person's name or maybe a job title.
 -__timestamp__: Both date and time. You could record flight times for an airport.
 
@@ -83,7 +83,7 @@
     ```
 - Someone has just checked out one of the books. Change the number of available copies to 1 fewer.
     ```
-    UPDATE laibrary SET available_copies = available_copies + 1 
+    UPDATE library SET available_copies = available_copies + 1 
     WHERE ISBN=0143039431;
     ```
 - Now one of the books has been added to the banned books list. Remove it from the table.
@@ -115,9 +115,9 @@
     (3, 'Deep Impact', 2005, 'USA', 
     'It was designed to study the interior composition of the comet Tempel 1 (9P/Tempel), by releasing an impactor into the comet.', 'Sun', false);
         
-    DELETE FROM spacecraft WHERE ID=2;
+    DELETE FROM spacecraft WHERE id=2;
 
-    UPDATE spacecraft SET in_operation = flase
+    UPDATE spacecraft SET in_operation = false
     WHERE id=1;   
     ```
 
@@ -135,7 +135,7 @@ CREATE TABLE emails (
      other_recipients varchar(100)[],
      read boolean,
      chain_id smallint,
-     time temestamp,
+     time timestamp,
      body text
     );
 
