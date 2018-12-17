@@ -128,20 +128,21 @@ WHERE dogs.name = 'Rosco';
 
 - List all of the library patrons. If they have one or more books checked out, list the books with the patrons.
 ```
-    SELECT p.id, p.name, b.title, b.isbn
-    from patrons AS p
-    LEFT JOIN transactions
-    ON p.id = transactions.patron_id
-    LEFT JOIN books as b
-    ON transactions.isbn = b.isbn
-    ORDER BY p.name;
+    SELECT p.id, p.name, string_agg(
+        (CASE
+            WHEN t.checked_in_date IS NULL THEN b.title
+            ELSE NULL
+        END), ', ') AS checked_out
+    FROM patrons p
+    LEFT JOIN transactions t ON p.id = t.patron_id
+    LEFT JOIN books b ON t.isbn = b.isbn
+    GROUP BY p.id;
 ```
-| id  | name             | title                                   | isbn       |
-| --- | ---------------- | --------------------------------------- | ---------- |
-| 5   | Cedric Diggory   | Fantastic Beasts and Where to Find Them | 3458400871 |
-| 4   | Cho Chang        | Advanced Potion-Making                  | 9136884926 |
-| 1   | Hermione Granger | Fantastic Beasts and Where to Find Them | 3458400871 |
-| 1   | Hermione Granger | Hogwarts: A History                     | 1840918626 |
-| 3   | Padma Patil      | Fantastic Beasts and Where to Find Them | 3458400871 |
-| 2   | Terry Boot       | Advanced Potion-Making                  | 9136884926 |
-| 2   | Terry Boot       | Fantastic Beasts and Where to Find Them | 3458400871 |
+| id  | name             | checked_out                             |
+| --- | ---------------- | --------------------------------------- |
+| 1   | Hermione Granger |                                         |
+| 2   | Terry Boot       | Advanced Potion-Making                  |
+| 3   | Padma Patil      |                                         |
+| 4   | Cho Chang        |                                         |
+| 5   | Cedric Diggory   | Fantastic Beasts and Where to Find Them |
+
